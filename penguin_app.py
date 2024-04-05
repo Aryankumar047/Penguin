@@ -63,10 +63,10 @@ def prediction(model,island,bill_length_mm,bill_depth_mm,flipper_length_mm,body_
     return 'Gentoo'
 
 st.sidebar.title('Penguins Species Prediction App')
-blm=st.sidebar.slider('Bill length in mm',float(df['bil_length_mm'].min()),float(df['bill_length_mm'].max()))
-bdm=st.sidebar.slider('Bill depth in mm',float(df['bill_depth_mm'].min()),float(df['bill_depth_mm'].max()))
-flm=st.sidebat.slider('Flipper length in mm',float(df['flipper_length_mm'].min()),float(df['flipper_;ength_mm'].max()))
-bmg=st.sidebar.slider('Body mass in g',float(df['body_mass_g'].min()),float(df['body_mass_g'].max()))
+blm=st.sidebar.slider('Bill length in mm',df['bil_length_mm'].min(),df['bill_length_mm'].max())
+bdm=st.sidebar.slider('Bill depth in mm',df['bill_depth_mm'].min(),df['bill_depth_mm'].max())
+flm=st.sidebat.slider('Flipper length in mm',df['flipper_length_mm'].min(),df['flipper_;ength_mm'].max())
+bmg=st.sidebar.slider('Body mass in g',df['body_mass_g'].min(),df['body_mass_g'].max())
 sex1=st.sidebar.selectbox('Sex',('Male','Female'))
 sex=df[sex1]
 island1=st.sidebar.selectbox('Island',('Biscoe','Dream','Torgerson'))
