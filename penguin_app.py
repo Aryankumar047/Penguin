@@ -72,16 +72,3 @@ sex=df[sex1]
 island1=st.sidebar.selectbox('Island',('Biscoe','Dream','Torgerson'))
 island=df[island1]
 classifier=st.sidebar.selectbox('Classifier',('Loistic Regression,Support Vector Machine, Random Forest Classifier'))
-
-if st.sidebar.button('Predict'):
-  if classifier == 'Logistic Regression':
-    penguin_type=predicton(log_reg,island,blm,bdm,flm,bmg,sex)
-    score=log_reg.score(X_train,y_train)
-  elif classifier == 'Support Vector Machine':
-    penguin_type=prediction(svc_model,island,blm,bdm,flm,bmg,sex)
-    score=svc_model.score(X_train,y_train)
-  elif classifier == 'Random Forest Classifier':
-    penguin_type=prediction(rf_clf,island,blm,bdm,flm,bmg,sex)
-    score=rf_clf.score(X_train,y_train)
-  st.write('Species Predicted --> ',penguin_type)
-  st.write('Model Accuracy --> ',score)
