@@ -63,7 +63,7 @@ def prediction(model,island,bill_length_mm,bill_depth_mm,flipper_length_mm,body_
     return 'Gentoo'
 
 st.sidebar.title('Penguins Species Prediction App')
-blm=st.sidebar.slider('Bill length in mm',df['bil_length_mm'].min(),df['bill_length_mm'].max())
+blm=st.sidebar.slider('Bill length in mm',df['bill_length_mm'].min(),df['bill_length_mm'].max())
 bdm=st.sidebar.slider('Bill depth in mm',df['bill_depth_mm'].min(),df['bill_depth_mm'].max())
 flm=st.sidebat.slider('Flipper length in mm',df['flipper_length_mm'].min(),df['flipper_length_mm'].max())
 bmg=st.sidebar.slider('Body mass in g',df['body_mass_g'].min(),df['body_mass_g'].max())
