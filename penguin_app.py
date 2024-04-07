@@ -65,10 +65,30 @@ def prediction(model,island,bill_length_mm,bill_depth_mm,flipper_length_mm,body_
 st.sidebar.title('Penguins Species Prediction App')
 blm=st.sidebar.slider('Bill length in mm',df['bil_length_mm'].min(),df['bill_length_mm'].max())
 bdm=st.sidebar.slider('Bill depth in mm',df['bill_depth_mm'].min(),df['bill_depth_mm'].max())
-flm=st.sidebat.slider('Flipper length in mm',df['flipper_length_mm'].min(),df['flipper_;ength_mm'].max())
+flm=st.sidebat.slider('Flipper length in mm',df['flipper_length_mm'].min(),df['flipper_length_mm'].max())
 bmg=st.sidebar.slider('Body mass in g',df['body_mass_g'].min(),df['body_mass_g'].max())
 sex1=st.sidebar.selectbox('Sex',('Male','Female'))
-sex=df[sex1]
+if sex1 == 'Male':
+  sex=0
+else:
+  sex=0
 island1=st.sidebar.selectbox('Island',('Biscoe','Dream','Torgerson'))
-island=df[island1]
+if island1 == 'Biscoe':
+  island=0
+elif island1 == 'Dream':
+  island=1
+else:
+  island=2
 classifier=st.sidebar.selectbox('Classifier',('Logistic Regression','Support Vector Machine','Random Forest Classifier'))
+if st.sidebar.button('Predict'):
+  if classifier == 'Logistic Regression':
+    penguin_type=predicton(log_reg,island,blm,bdm,flm,bmg,sex)
+    score=log_reg.score(X_train,y_train)
+  elif classifier == 'Support Vector Machine':
+    penguin_type=prediction(svc_model,island,blm,bdm,flm,bmg,sex)
+    score=svc_model.score(X_train,y_train)
+  elif classifier == 'Random Forest Classifier':
+    penguin_type=prediction(rf_clf,island,blm,bdm,flm,bmg,sex)
+    score=rf_clf.score(X_train,y_train)
+  st.write('Species Predicted --> ',penguin_type)
+  st.write('Model Accuracy --> ',score)
