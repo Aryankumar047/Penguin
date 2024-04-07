@@ -55,9 +55,9 @@ rf_clf_score = rf_clf.score(X_train, y_train)
 def prediction(model,island,bill_length_mm,bill_depth_mm,flipper_length_mm,body_mass_g,sex):
   penguins=model.predict([[island,bill_length_mm,bill_depth_mm,flipper_length_mm,body_mass_g,sex]])
   penguins=penguins[0]
-  if penguins == 0:
+  if penguins == 1:
     return 'Adelie'
-  elif penguins == 1:
+  elif penguins == 2:
     return 'Chinstrap'
   else:
     return 'Gentoo'
