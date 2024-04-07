@@ -71,4 +71,4 @@ sex1=st.sidebar.selectbox('Sex',('Male','Female'))
 sex=df[sex1]
 island1=st.sidebar.selectbox('Island',('Biscoe','Dream','Torgerson'))
 island=df[island1]
-classifier=st.sidebar.selectbox('Classifier',('Loistic Regression,Support Vector Machine, Random Forest Classifier'))
+classifier=st.sidebar.selectbox('Classifier',('Logistic Regression','Support Vector Machine','Random Forest Classifier'))
